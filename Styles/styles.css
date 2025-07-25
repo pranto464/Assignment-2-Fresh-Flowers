@@ -1,4 +1,380 @@
+
 /* Hero Background */
 .hero-bg {
     background: #f5f8ff;
+}
+
+/* Join Section Background */
+.join-section {
+    background-image: url('../Images/news-letter-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Latest Deals Background Images  */
+.deal-card-bloom {
+    background-image: url('../Images/deal-bloom.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 180px;
+}
+
+.deal-card-ana {
+    background-image: url('../Images/deal-ana.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 180px;
+}
+
+.deal-card-zabo {
+    background-image: url('../Images/deal-zabo.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 380px;
+}
+
+/* Trusted Badge Animation  */
+@keyframes spin-infinite {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.trusted-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    text-align: center;
+}
+
+.badge-container {
+    background: linear-gradient(45deg, #fbbf24, #f59e0b);
+    border-radius: 50%;
+    padding: 8px;
+    animation: spin-infinite 2s linear infinite;
+    margin-bottom: 8px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.badge-circle {
+    background: #f59e0b;
+    border-radius: 50%;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.badge-text {
+    background: white;
+    border-radius: 8px;
+    padding: 4px 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    font-size: 10px;
+    line-height: 1.2;
+}
+
+/* Latest Deals Grid Layout */
+.grid.grid-rows-2 {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+/* Desktop specific heights for deals section */
+@media (min-width: 768px) {
+    .h-auto.md\\:h-96 {
+        height: 24rem;
+    }
+    
+    .deal-card-bloom,
+    .deal-card-ana {
+        min-height: 11rem;
+    }
+    
+    .deal-card-zabo {
+        min-height: 24rem;
+    }
+}
+
+/* Hover effects for deal cards */
+.deal-card-bloom:hover,
+.deal-card-ana:hover,
+.deal-card-zabo:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    /* Hide trusted badge on mobile */
+    .trusted-badge {
+        display: none;
+    }
+    
+    /* Join section mobile adjustments */
+    .join-section {
+        background-attachment: scroll;
+    }
+    
+    /* Latest Deals Mobile Layout - Stack all cards vertically */
+    .grid.grid-cols-1.md\\:grid-cols-2 {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .h-auto.md\\:h-96 {
+        height: auto;
+    }
+    
+    .grid.grid-rows-2 {
+        grid-template-rows: none;
+        display: block;
+    }
+    
+    .grid.grid-rows-2 > div {
+        margin-bottom: 1rem;
+    }
+    
+    .grid.grid-rows-2 > div:last-child {
+        margin-bottom: 0;
+    }
+    
+    /* Adjust card heights for mobile */
+    .deal-card-bloom,
+    .deal-card-ana,
+    .deal-card-zabo {
+        min-height: 200px !important;
+    }
+    
+    /* Mobile spacing adjustments */
+    .py-16 {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+}
+
+@media (max-width: 640px) {
+    /* Hero section mobile adjustments */
+    .hero-bg h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+    
+    /* Plants section mobile grid */
+    .grid.grid-cols-2.md\\:grid-cols-4 {
+        gap: 1rem;
+    }
+    
+    /* Join section mobile */
+    .join-section h2 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+        margin-bottom: 2rem;
+    }
+    
+    .join-section .flex.flex-col.md\\:flex-row {
+        flex-direction: column;
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+    
+    .join-section input,
+    .join-section button {
+        border-radius: 0.5rem;
+        margin-top: 0;
+        width: 100%;
+    }
+    
+    .join-section button {
+        margin-top: 0.5rem;
+    }
+    
+    /* Badge adjustments for smaller screens */
+    .badge-container {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .badge-circle {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .badge-text {
+        font-size: 8px;
+        padding: 2px 4px;
+    }
+    
+    /* Latest deals mobile text sizing */
+    .deal-card-bloom .text-lg,
+    .deal-card-ana .text-lg,
+    .deal-card-zabo .text-2xl {
+        font-size: 1rem;
+    }
+    
+    .deal-card-zabo .md\\:text-3xl {
+        font-size: 1.25rem;
+    }
+}
+
+/* Additional responsive utilities */
+@media (min-width: 768px) {
+    .md\\:grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    
+    .md\\:grid-cols-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* Button hover effects */
+button:hover {
+    transform: translateY(-1px);
+    transition: all 0.3s ease;
+}
+
+/* Input focus styles */
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.1);
+    border-color: #f59e0b;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    transition: all 0.3s ease;
+}
+
+/* Grid system enhancements */
+.grid {
+    display: grid;
+}
+
+.gap-6 {
+    gap: 1.5rem;
+}
+
+/* Ensure proper aspect ratios for deal cards */
+.deal-card-bloom,
+.deal-card-ana,
+.deal-card-zabo {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+/* Text overlay improvements */
+.deal-card-bloom .absolute,
+.deal-card-ana .absolute,
+.deal-card-zabo .absolute {
+    backdrop-filter: blur(2px);
+}
+
+/* Animation performance optimization */
+.badge-container {
+    will-change: transform;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    .badge-container {
+        animation: none;
+    }
+    
+    * {
+        transition: none;
+    }
+}
+
+/* Latest Deals Section specific styling */
+.latest-deals-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    height: 24rem;
+}
+
+.left-deals-column {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.right-deals-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Deal card content positioning */
+.deal-card-bloom .absolute,
+.deal-card-ana .absolute,
+.deal-card-zabo .absolute {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Typography improvements for deals */
+.deal-card-bloom p,
+.deal-card-ana p {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.deal-card-zabo p {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .deal-card-zabo p {
+        font-size: 2.25rem;
+    }
+}
+
+/* Button styling consistency */
+.deal-card-bloom button,
+.deal-card-ana button,
+.deal-card-zabo button {
+    font-weight: 500;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.deal-card-bloom button:hover,
+.deal-card-ana button:hover,
+.deal-card-zabo button:hover {
+    background-color: #ea580c;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(234, 88, 12, 0.4);
+}
+@keyframes spin-slow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 5s linear infinite;
 }
